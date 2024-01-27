@@ -10,6 +10,7 @@ import Signin from './components/Signin'
 import Signup from './components/Signup'
 import DataPage from './pages/DataPage'
 import {  UserProvider } from '../context/AuthContext'
+import CreateCase from './pages/CreateCase'
 // import { AuthContext } from '../context/AuthContext'
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
       <Route path='/signin' element={<Signin/>}/>
       <Route path='/signup' element={<Signup/>}/>
       <Route path='/datapage' element={<DataPage/>}/>
+      <Route path='/createcase' element={<CreateCase/>}/>
     </Routes>
     </UserProvider>
     {/* </AuthContext.provider> */}

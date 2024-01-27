@@ -39,11 +39,10 @@ const Signup = () => {
               password:password
             },{withCredentials:true}).then((result)=>updateUser(result.data))   
 
-            // console.log(user)
+            console.log(user)
             setLoading(false)
-            if(user){
               navigate('/datapage')
-            }
+            
         }catch(error){
             setLoading(false)
             alert('OOPS, Signup failed !')
