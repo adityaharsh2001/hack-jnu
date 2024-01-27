@@ -6,15 +6,14 @@ import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import { Route, Routes } from 'react-router-dom'
 import Signin from './components/Signin'
+import LandingPage from './pages/LandingPage'
 
 function App() {
  
   return (
-   <div className='p-8 bg-gradient-to-t from-purple-300/80 h-screen to-white'>
-      {/* <Route path='/' ></Route> */}
-      <Navbar/>
-      <Hero/>
+   <div className=' '> 
     <Routes>
+      <Route path='/' element={<LandingPage/>}/>
       <Route path='/signin' element={<Signin/>}/>
     </Routes>
    </div>
