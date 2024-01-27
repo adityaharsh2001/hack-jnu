@@ -6,7 +6,7 @@ const Router = require('./Routes/auth.routes');
 app.use(express.json());
 connectDB();
 app.use(cors({
-    origin: ["http://localhost:3000", "https://dcm.geekyadi.dev"],
+    origin: ["http://localhost:5173", "https://dcm.geekyadi.dev"],
     credentials: true,
 }));
 const cookieParser = require('cookie-parser');
