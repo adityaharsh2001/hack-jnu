@@ -8,7 +8,7 @@ export default defineConfig({
         port: 5173,
         proxy: {
         '/api': {
-            target: 'https://dcms.geekyadi.dev/api',
+            target: 'https://dcm.geekyadi.dev/api',
             changeOrigin: true,
             rewrite: (path) => path.replace(/^\/api/, '')
         }
