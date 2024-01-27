@@ -72,9 +72,15 @@ def predict():
         })
         result = response.text
         result = clean_string(result)
-        # res = collection.insert_one({
-        #     "Case Type": result[0: result.find("Case Type")],
-        # })
+        # result = convert_to_valid_json(result)
+        # write to json file
+
+        with open('result.json', 'w') as fp:
+            json.dump(result, fp)
+        # read from json file
+        with open('result.json', 'r') as fp:
+            result = json.load(fp)
+        result = json.loads(result)
         return jsonify({"result": result})
     except Exception as e:
         return jsonify({"error": str(e)})
