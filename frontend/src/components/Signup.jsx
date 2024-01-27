@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
 
@@ -20,11 +21,17 @@ const Signup = () => {
         }
         try{
             setLoading(true)
-            
+            await axios.post('https://dcm.geekyadi.dev/api/signup',{
+              email:email,
+              name:name,
+              role:role,
+              password:password
+            },{withCredentials:true}).then((res)=>console.log(res))   
         }catch(error){
             setLoading(false)
             alert('OOPS, Signin failed !')
         }
+    
     }
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-t from-purple-300/80  to-white">

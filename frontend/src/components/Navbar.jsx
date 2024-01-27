@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { AuthContext } from '../../context/AuthContext'
 
 const Navbar = () => {
+   
   return (
     <div className='flex justify-between items-center text-black'>
         <div>Logo</div>
@@ -15,7 +17,6 @@ const Navbar = () => {
         <Link to={'/signin'}>
         <button className="btn m-0 bg-purple-500 hover:bg-purple-400 border-none hover:border-none text-sm text-white">Get started</button>
         </Link>
-
     </div>
   )
 }
