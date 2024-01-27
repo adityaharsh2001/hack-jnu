@@ -45,7 +45,7 @@ const CreateCaseForm = () => {
 
   return (
     <div className="max-w-xl mx-auto mt-10 p-6 bg-white rounded-md shadow-md">
-      <h2 className="text-2xl font-semibold mb-4">Create Case</h2>
+      <h2 className="text-2xl font-semibold mb-4">Submit a case to analyse</h2>
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
           <label htmlFor="caseTitle" className="block text-sm font-medium text-gray-600">
@@ -82,7 +82,7 @@ const CreateCaseForm = () => {
             Case Id
           </label>
           <input
-            type="text"
+            type="number"
             id="kanoonId"
             name="kanoonId"
             value={formData.kanoonId}
@@ -110,7 +110,7 @@ const CreateCaseForm = () => {
             Citations
           </label>
           <input
-            type="text"
+            type="number"
             id="citations"
             name="citations"
             value={formData.citations}
@@ -124,7 +124,7 @@ const CreateCaseForm = () => {
             Citations length
           </label>
           <input
-            type="text"
+            type="number"
             id="citationsLength"
             name="citationsLength"
             value={formData.citationsLength}

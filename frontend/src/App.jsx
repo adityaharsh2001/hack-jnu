@@ -9,6 +9,8 @@ import LandingPage from './pages/LandingPage'
 import Signin from './components/Signin'
 import Signup from './components/Signup'
 import DataPage from './pages/DataPage'
+import CreateCase from './pages/CreateCase'
+import SingleCasePage from './pages/SingleCasePage'
 
 
 function App() {
@@ -19,6 +21,8 @@ function App() {
       <Route path='/signin' element={<Signin/>}/>
       <Route path='/signup' element={<Signup/>}/>
       <Route path='/datapage' element={<DataPage/>}/>
+      <Route path='/createcase' element={<CreateCase/>}/>
+      <Route path='/casepage' element={<SingleCasePage/>}/>
     </Routes>
    </div>
   )
