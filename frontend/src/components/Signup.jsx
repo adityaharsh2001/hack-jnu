@@ -1,6 +1,8 @@
 import axios from 'axios';
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
+import { useUser } from '../../context/AuthContext';
+// import { AuthContext } from '../../context/AuthContext.jsx';
 
 const Signup = () => {
     const [email,setEmail]=useState('');
@@ -9,6 +11,13 @@ const Signup = () => {
     const [password,setPassword]=useState('')
     const [loading,setLoading]=useState(false)
     const navigate=useNavigate()
+     
+    // const {user,setUser}=useContext(AuthContext)
+    const { user, updateUser } = useUser();
+
+    // console.log(user)
+    // console.log(user,setUser)
+   
     // console.log(loading)
     // console.log(name,password,role,email)
     const submitHandler=async()=>{
@@ -22,14 +31,19 @@ const Signup = () => {
         }
         try{
             setLoading(true)
+            // console.log(email,name,role,password)
             await axios.post('/api/signup',{
               email:email,
               name:name,
               role:role,
               password:password
-            },{withCredentials:true}).then((res)=>console.log(res))   
+            },{withCredentials:true}).then((result)=>updateUser(result.data))   
+
+            // console.log(user)
             setLoading(false)
-            navigate('/datapage')
+            if(user){
+              navigate('/datapage')
+            }
         }catch(error){
             setLoading(false)
             alert('OOPS, Signup failed !')
