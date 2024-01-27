@@ -1,33 +1,20 @@
 const jwt = require('jsonwebtoken');
-const secretKey='masti'
-const authenticate = (req, res, next) => {
-    const accessToken = req.headers['authorization'];
-    const refreshToken = req.cookies['refreshToken'];
+const secretKey = 'secret_key';
 
-    if (!accessToken && !refreshToken) {
+const authenticate = (req, res, next) => {
+    // const token = req.headers['authorization'];
+    //bearer token
+    const token = req.headers.authorization.split(' ')[1];
+    if (!token) {
         return res.status(401).send('Access Denied. No token provided.');
     }
 
     try {
-        const decoded = jwt.verify(accessToken, secretKey);
-        req.user = decoded.user;
+        const decoded = jwt.verify(token, secretKey);
+        req.user = decoded;
         next();
     } catch (error) {
-        if (!refreshToken) {
-            return res.status(401).send('Access Denied. No refresh token provided.');
-        }
-
-        try {
-            const decoded = jwt.verify(refreshToken, secretKey);
-            const accessToken = jwt.sign({ user: decoded.user }, secretKey, { expiresIn: '1h' });
-
-            res
-                .cookie('refreshToken', refreshToken, { httpOnly: true, sameSite: 'strict' })
-                .header('Authorization', accessToken)
-                .send(decoded.user);
-        } catch (error) {
-            return res.status(400).send('Invalid Token.');
-        }
+        return res.status(400).send('Invalid Token.');
     }
 };
-module.exports= { authenticate }
+module.exports = { authenticate }
