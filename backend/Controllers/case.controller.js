@@ -1,17 +1,6 @@
 const mongoose = require('mongoose');
 const Case = require('./../Schema/cases.schema');
 
-class CaseDTO {
-    constructor({ caseTitle, source, indiankanoonId, caseProceedings, citations, citationsLength, bench }) {
-        this.caseTitle = caseTitle;
-        this.source = source;
-        this.indiankanoonId = indiankanoonId;
-        this.caseProceedings = caseProceedings;
-        this.citations = citations;
-        this.citationsLength = citationsLength;
-        this.bench = bench;
-    }
-}
 
 const getCaseById = async (req, res) => {
     try {
@@ -36,23 +25,20 @@ const addCase = async (req, res) => {
             return res.status(400).json({ message: "Case title and Indiankanoon ID are required" });
         }
 
-        const caseDataDTO = new CaseDTO({
-            caseTitle,
-            source,
-            indiankanoonId,
-            caseProceedings,
-            citations,
-            citationsLength,
-            bench,
+        const caseData = new Case({
+            "Case Title": caseTitle,
+            Source: source,
+            "Indiankanoon ID": indiankanoonId,
+            "Case Proceedings": caseProceedings,
+            Citations: citations,
+            "Citations Length": citationsLength,
+            Bench: bench,
         });
-
-
-        const caseData = new Case(caseDataDTO);
 
 
         await caseData.save();
 
-        res.status(201).json(caseDataDTO);
+        res.status(200).json(caseData);
     } catch (error) {
         console.error(error);
         res.status(500).json({ message: "Internal Server Error" });
