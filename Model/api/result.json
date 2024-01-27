@@ -1,0 +1,32 @@
+{
+  "Case Type": "Civil",
+  "Case Complexity": 4,
+  "Filing Date": "15-Jun-2009",
+  "Pending Duration": "12 years",
+  "Case Value": "20000 rupees",
+  "Alternative Dispute Resolution (ADR) Opportunities": 2,
+  "Number of Hearings": 3,
+  "Party information": [
+    "Petitioner: P.Sherry, S. Sreevalasn",
+    "Respondent: State Of Kerala, The Additional Chief Secretary, Dr. P.Prabakaran"
+  ],
+  "Number of Parties Involved": 4,
+  "Legal Representation": true,
+  "Sections": [
+    "Rule 13A(1)(a) of Part-II of the K.S. & S.S.R"
+  ],
+  "Legal Grounds": [
+    "Challenge to Government order rejecting petitioners' request for exemption under Rule 13A(1)(a)",
+    "Denial of seniority benefits due to delay"
+  ],
+  "Statutory Compliance": true,
+  "Urgency Factors": 0,
+  "Appeals and Revision Petitions": true,
+  "Geographic Factors": "Kerala High Court",
+  "State of Filing": "Kerala",
+  "Public interest": 0,
+  "Volume of Evidence": 1,
+  "Number of Legal Issues": 1,
+  "Time Sensitivity": 0,
+  "Case Severity": 7
+}
