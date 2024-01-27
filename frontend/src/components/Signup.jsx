@@ -21,7 +21,7 @@ const Signup = () => {
         }
         try{
             setLoading(true)
-            await axios.post('http://localhost:8000/signup',{
+            await axios.post('https://dcm.geekyadi.dev/api/signup',{
               email:email,
               name:name,
               role:role,
