@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const Case = require('./../Schema/cases.schema');
-
+const PredictedCase= require('./../Schema/predictionCases.schema');
 
 const getCaseById = async (req, res) => {
     try {
@@ -8,7 +8,7 @@ const getCaseById = async (req, res) => {
         const caseData = await Case.findOne({ "Indiankanoon ID": id });
 
         if (!caseData) {
-            return res.status(404).json({ message: "Case not found" });
+            return res.status(404).json({ case: {} });
         }
         res.status(200).json({case:caseData});
     } catch (error) {
@@ -62,5 +62,18 @@ const addCase = async (req, res) => {
     }
 };
 
+const getPredictedCaseById = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const caseData = await PredictedCase.findOne({ "case_id": id });
+        if (!caseData) {
+            return res.status(404).json({ predictedCases: null });
+        }
+        res.status(200).json({ predictedCases: caseData });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: "Internal Server Error" });
+    }
+};
 
-module.exports = { getCaseById, addCase };
+module.exports = { getCaseById, addCase,getPredictedCaseById };
