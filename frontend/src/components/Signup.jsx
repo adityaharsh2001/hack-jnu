@@ -32,7 +32,7 @@ const Signup = () => {
             navigate('/datapage')
         }catch(error){
             setLoading(false)
-            alert('OOPS, Signin failed !')
+            alert('OOPS, Signup failed !')
         }
     
     }
