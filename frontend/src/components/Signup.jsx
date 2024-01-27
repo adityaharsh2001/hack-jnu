@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
+import {useStore} from "../store/useStore.js";
 
 const Signup = () => {
     const [email,setEmail]=useState('');
@@ -9,6 +10,9 @@ const Signup = () => {
     const [password,setPassword]=useState('')
     const [loading,setLoading]=useState(false)
     const navigate=useNavigate()
+       const userProfile=useStore(state => state.user);
+       const setUserProfile=useStore(state => state.setUser);
+    console.log(userProfile)
     // console.log(loading)
     // console.log(name,password,role,email)
     const submitHandler=async()=>{
@@ -22,14 +26,17 @@ const Signup = () => {
         }
         try{
             setLoading(true)
-            await axios.post('/api/signup',{
+            const res=await axios.post('/api/signup',{
               email:email,
               name:name,
               role:role,
               password:password
-            },{withCredentials:true}).then((res)=>console.log(res))   
+            },{withCredentials:true})
+            setUserProfile(res.data)
             setLoading(false)
+            if(res.status===200){
             navigate('/datapage')
+                }
         }catch(error){
             setLoading(false)
             alert('OOPS, Signup failed !')
