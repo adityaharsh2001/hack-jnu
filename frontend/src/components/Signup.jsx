@@ -1,23 +1,20 @@
 import axios from 'axios';
-import React, { useContext, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
-import { useUser } from '../../context/AuthContext';
-// import { AuthContext } from '../../context/AuthContext.jsx';
+
 
 const Signup = () => {
+  
+    useEffect(()=>{
+      console.log(user);
+    },[user])
+    
     const [email,setEmail]=useState('');
     const [name,setName]=useState('')
     const [role,setRole]=useState('judge')
     const [password,setPassword]=useState('')
     const [loading,setLoading]=useState(false)
     const navigate=useNavigate()
-     
-    // const {user,setUser}=useContext(AuthContext)
-    const { user, updateUser } = useUser();
-
-    // console.log(user)
-    // console.log(user,setUser)
-   
     // console.log(loading)
     // console.log(name,password,role,email)
     const submitHandler=async()=>{
@@ -31,24 +28,24 @@ const Signup = () => {
         }
         try{
             setLoading(true)
-            // console.log(email,name,role,password)
-            await axios.post('/api/signup',{
+            const res = await axios.post('/api/signup',{
               email:email,
               name:name,
               role:role,
               password:password
-            },{withCredentials:true}).then((result)=>updateUser(result.data))   
+            },{withCredentials:true})
 
-            console.log(user)
-            setLoading(false)
-              navigate('/datapage')
             
-        }catch(error){
+            setLoading(false)
+            navigate('/datapage')
+            
+          }catch(error){
+            console.log(error)
             setLoading(false)
             alert('OOPS, Signup failed !')
+          }
+          
         }
-    
-    }
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-t from-purple-300/80  to-white">
     <div className="bg-white  rounded-md p-8  shadow-md w-96 text-center">
