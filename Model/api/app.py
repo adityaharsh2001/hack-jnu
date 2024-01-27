@@ -55,6 +55,10 @@ def convert_to_valid_json(input_str):
     except json.JSONDecodeError as e:
         return f"Error: {str(e)}"
 
+#hello world
+@app.route('/')
+def hello_world():
+    return 'Hello World!'
 
 @app.route('/predict', methods=['POST'])
 def predict():
