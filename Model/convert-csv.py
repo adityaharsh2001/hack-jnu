@@ -13,4 +13,4 @@ def json_to_csv(json_file, csv_file):
             writer.writerow(item.values())
 
 # Usage example
-json_to_csv('cases.json', 'data.csv')
+json_to_csv('output.json', 'data.csv')
