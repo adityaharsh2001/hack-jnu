@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 const Navbar = () => {
   return (
-    <div className='flex justify-between items-center'>
+    <div className='flex justify-between items-center text-black'>
         <div>Logo</div>
         <div>
             <ul className=' hover:cursor-pointer text-slate-600 font-[400] text-base flex justify-between list-none gap-x-5 capitalize'>
@@ -13,7 +13,7 @@ const Navbar = () => {
             </ul>
         </div>
         <Link to={'/signin'}>
-        <button className="btn m-0 bg-purple-300 hover:bg-purple-200 border-none hover:border-none text-sm">Get started</button>
+        <button className="btn m-0 bg-purple-500 hover:bg-purple-400 border-none hover:border-none text-sm text-white">Get started</button>
         </Link>
 
     </div>
