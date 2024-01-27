@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Signup = () => {
     const [email,setEmail]=useState('');
@@ -8,6 +8,7 @@ const Signup = () => {
     const [role,setRole]=useState('judge')
     const [password,setPassword]=useState('')
     const [loading,setLoading]=useState(false)
+    const navigate=useNavigate()
     // console.log(loading)
     // console.log(name,password,role,email)
     const submitHandler=async()=>{
@@ -27,6 +28,8 @@ const Signup = () => {
               role:role,
               password:password
             },{withCredentials:true}).then((res)=>console.log(res))   
+            setLoading(false)
+            navigate('/datapage')
         }catch(error){
             setLoading(false)
             alert('OOPS, Signin failed !')
