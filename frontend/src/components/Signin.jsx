@@ -1,19 +1,17 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom';
 
 const Signin = () => {
     const [email,setEmail]=useState('');
-    const [name,setName]=useState('')
-    const [role,setRole]=useState('judge')
     const [password,setPassword]=useState('')
     const [loading,setLoading]=useState(false)
     // console.log(loading)
     // console.log(name,password,role,email)
+    
     const submitHandler=async()=>{
-        if(!email || !name || !role || !password){
-            alert('All fields are necessary!')
+        if(!email || !password){
+            alert('Both fields are necessary!')
             setEmail('')
-            setName('')
-            setRole('')
             setPassword('')
             return 
         }
@@ -30,17 +28,7 @@ const Signin = () => {
     <div className="bg-white  rounded-md p-8  shadow-md w-96 text-center">
       <h2 className="text-2xl font-bold mb-4 text-slate-800">Sign In</h2>
       
-      <div className="mb-4 ">
-        <label className="block text-slate-600 mb-1">Name</label>
-        <input
-          type="text"
-          className=" focus:outline-none w-full p-2 border border-slate-300 rounded"
-          placeholder="Enter your name"
-          value={name}
-          onChange={(e)=>setName(e.target.value)}
-        />
-      </div>
-
+      
       <div className="mb-4">
         <label className="block text-slate-600 mb-1">Email</label>
         <input
@@ -63,26 +51,6 @@ const Signin = () => {
         />
       </div>
 
-      <div className="mb-4">
-        <label className="block text-slate-600 mb-1 text-center">Role</label>
-        {/* <input
-          type="text"
-          className="focus:outline-none w-full p-2 border border-slate-300 rounded"
-          placeholder="Enter your role"
-          value={role}
-          onChange={(e)=>setRole(e.target.value)}
-        /> */}
- <select
-    id="role"
-    className='w-full text-center outline-none rounded-md  border border-1 border-slate-300 p-1 text-slate-600'
-    value={role}
-    onChange={(e) => setRole(e.target.value)}
-  >
-    <option value="judge">Judge</option>
-    <option value="lawyer">Lawyer</option>
-  </select>
-      </div>
-      
         {
             loading ? (
             
@@ -102,10 +70,11 @@ const Signin = () => {
                 onClick={submitHandler}
                 className="mt-4 bg-purple-500 hover:bg-purple-300 text-white p-2 rounded w-full "
                 >
-                    Sign In
+                    Sign in
                     </button>
             )
         }
+        <p className='mt-2 text-base'>Not a registered user ?<Link to={'/signup'}> <span className='cursor-pointer text-blue-500 underline'>Sign-Up here</span> </Link></p>
           </div>
   </div>
   )
