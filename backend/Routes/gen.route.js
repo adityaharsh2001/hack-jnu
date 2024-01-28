@@ -18,8 +18,8 @@ function convertToValidJson(jsonString) {
 Router.post('/case/prioritize', async (req, res) => {
     try {
         const {input} = req.body;
-        const result = await axios.post('http://127.0.0.1:5000/predict', {input});
-        res.status(200).json({message:"Success",data:result.data.result});
+        const result = await axios.post('https://directed-mender-412414.uc.r.appspot.com/predict', {input});
+        res.status(200).json({message:"Success",data:JSON.parse(result.data.result)});
     }
     catch (error) {
         console.log(error);
