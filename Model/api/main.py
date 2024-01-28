@@ -78,15 +78,15 @@ def predict():
         result = clean_string(result)
         # result = convert_to_valid_json(result)
         # write to json file
-
-        with open('result.json', 'w') as fp:
-            json.dump(result, fp)
-        # read from json file
-        with open('result.json', 'r') as fp:
-            result = json.load(fp)
-        result = json.loads(result)
+        # with open('result.json', 'w') as fp:
+        #     json.dump(result, fp)
+        # # read from json file
+        # with open('result.json', 'r') as fp:
+        #     result = json.load(fp)
+        # result = json.loads(result)
         return jsonify({"result": result})
     except Exception as e:
+        print(e)
         return jsonify({"error": str(e)})
 
 
