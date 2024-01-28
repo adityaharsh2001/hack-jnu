@@ -4,7 +4,7 @@ import {useNavigate} from "react-router-dom";
 import {useStore} from "../store/useStore.js";
 
 const CreateCaseForm = () => {
-  const [cases, setCases] = useState({}); // [1
+  const [cases, setCases] = useState(null);
   const setPredictions = useStore((state) => state.setPriorityData);
   const navigate=useNavigate()
   const [formData, setFormData] = useState({
@@ -41,7 +41,6 @@ const CreateCaseForm = () => {
             bench:formData.bench
         })
       setCases(res.data);
-      console.log(cases)
     }catch(error){
         console.log(error)
     }
@@ -52,9 +51,9 @@ const CreateCaseForm = () => {
     setPredictions(res.data.data);
     navigate('/datapage')
   }
-  useEffect(() => {
-    getPriority(cases);
-  }, [cases]);
+  // useEffect(() => {
+  //   getPriority(cases);
+  // }, [cases]);
 
   return (
     <div className="max-w-xl bg-white mx-auto mt-10 p-6  rounded-md shadow-md">
@@ -163,10 +162,11 @@ const CreateCaseForm = () => {
 
         <div className="mt-4">
           <button
-            type="submit"
+            // type="submit"
+              onClick={cases?()=>getPriority(cases):handleSubmit}
             className="bg-purple-500 text-white px-4 py-2   rounded-md hover:bg-purple-300"
           >
-            Create Case
+            { (cases)? ()=>"Prioritize" : "Submit"}
           </button>
         </div>
       </form>
