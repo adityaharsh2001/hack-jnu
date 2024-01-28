@@ -4,7 +4,7 @@ import {useNavigate} from "react-router-dom";
 import {useStore} from "../store/useStore.js";
 
 const CreateCaseForm = () => {
-  const [cases, setCases] = useState(null);
+  const [cases, setCases] = useState(false);
   const setPredictions = useStore((state) => state.setPriorityData);
   const navigate=useNavigate()
   const [formData, setFormData] = useState({
@@ -40,17 +40,44 @@ const CreateCaseForm = () => {
             citationsLength:formData.citationsLength,
             bench:formData.bench
         })
-      setCases(res.data);
+      setCases(true);
     }catch(error){
         console.log(error)
     }
 
   };
-  const getPriority= async (input) => {
-    const res = await axios.post(`/api/ai/case/prioritize`,{input});
-    setPredictions(res.data.data);
-    navigate('/datapage')
-  }
+    const MAX_RETRIES = 5;
+
+    const getPriority = async (input, currentRetry = 0) => {
+        try {
+            const res = await axios.post(`/api/ai/case/prioritize`, { input });
+
+            if (res.status === 200) {
+                // Successful response
+                setPredictions(res.data.data);
+                navigate('/datapage');
+            } else {
+                // Retry if the status is not 200
+                throw new Error(`Unexpected response status: ${res.status}`);
+            }
+        } catch (error) {
+            // Check if it's worth retrying
+            if (currentRetry < MAX_RETRIES - 1) {
+                // Retry with an exponential backoff delay
+                const delay = Math.pow(2, currentRetry) * 1000;
+                console.log(`Retrying in ${delay / 1000} seconds...`);
+                await new Promise(resolve => setTimeout(resolve, delay));
+
+                // Increment retry count and try again
+                await getPriority(input, currentRetry + 1);
+            } else {
+                // Max retries reached, throw the last error
+                console.error('Max retries reached or unexpected error:', error.message);
+                // You may choose to throw the error or handle it differently based on your requirements
+            }
+        }
+    };
+
   // useEffect(() => {
   //   getPriority(cases);
   // }, [cases]);
@@ -166,7 +193,7 @@ const CreateCaseForm = () => {
               onClick={cases?()=>getPriority(cases):handleSubmit}
             className="bg-purple-500 text-white px-4 py-2   rounded-md hover:bg-purple-300"
           >
-            { (cases)? ()=>"Prioritize" : "Submit"}
+            { cases ? "Prioritize" : "Submit" }
           </button>
         </div>
       </form>
