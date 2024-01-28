@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from "react-router-dom";
 
 const FeatureCard = ({ title, description, iconClass }) => {
     return (
@@ -19,26 +20,28 @@ const Hero = () => {
             <p className='text-3xl text-purple-300 text-center mb-8'>
                 Empower the Indian judiciary with our seamless Case Flow Management system.
             </p>
+            <Link to='casepage'>
             <button className="btn mb-5 bg-purple-500 hover:bg-purple-400 text-lg text-white px-8 py-2 rounded-full transition duration-300 transform hover:scale-105 focus:outline-none mt-8">
                 Explore More
             </button>
-            <div className="grid  grid-cols-1 md:grid-cols-3 gap-8">
-                <FeatureCard
-                    title="Accurate Data with Gemini Pro"
-                    description="Precision through Gemini Pro technology for reliable decision-making in legal processes."
-                    iconClass="icon-gemini-pro"  // Replace with your actual icon class or component
-                />
-                <FeatureCard
-                    title="Up to Date Data"
-                    description="Real-time updates for legal professionals, ensuring the latest information for case management."
-                    iconClass="icon-up-to-date"  // Replace with your actual icon class or component
-                />
-                <FeatureCard
-                    title="Faster Justice Delivery"
-                    description="Improved case flow management leading to faster justice delivery and efficient resolution of legal matters."
-                    iconClass="icon-fast-justice"  // Replace with your actual icon class or component
-                />
-            </div>
+            </Link>
+            {/*<div className="grid  grid-cols-1 md:grid-cols-3 gap-8">*/}
+            {/*    <FeatureCard*/}
+            {/*        title="Accurate Data with Gemini Pro"*/}
+            {/*        description="Precision through Gemini Pro technology for reliable decision-making in legal processes."*/}
+            {/*        iconClass="icon-gemini-pro"  // Replace with your actual icon class or component*/}
+            {/*    />*/}
+            {/*    <FeatureCard*/}
+            {/*        title="Up to Date Data"*/}
+            {/*        description="Real-time updates for legal professionals, ensuring the latest information for case management."*/}
+            {/*        iconClass="icon-up-to-date"  // Replace with your actual icon class or component*/}
+            {/*    />*/}
+            {/*    <FeatureCard*/}
+            {/*        title="Faster Justice Delivery"*/}
+            {/*        description="Improved case flow management leading to faster justice delivery and efficient resolution of legal matters."*/}
+            {/*        iconClass="icon-fast-justice"  // Replace with your actual icon class or component*/}
+            {/*    />*/}
+            {/*</div>*/}
         </div>
     );
 };

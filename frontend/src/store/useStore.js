@@ -6,7 +6,9 @@ export const useStore = create((set) => ({
     data:{},
     setData:(data)=>set({data}),
     predictedData:{},
-    setPredictedData:(predictedData)=>set({predictedData})
+    setPredictedData:(predictedData)=>set({predictedData}),
+    priorityData:{},
+    setPriorityData:(priorityData)=>set({priorityData})
 }));
 
 

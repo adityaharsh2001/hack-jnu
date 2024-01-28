@@ -1,10 +1,13 @@
 import React from 'react'
-import Navbar from '../components/Navbar'
+import {useStore} from "../store/useStore.js";
+import CardComp3 from "../components/CardComp3.jsx";
+
 
 const DataPage = () => {
+    const data=useStore(state=>state.priorityData)
   return (
     <div className='p-8'>
-        <Navbar/>
+        <CardComp3 data={data}/>
     </div>
   )
 }

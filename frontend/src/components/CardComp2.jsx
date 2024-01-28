@@ -49,17 +49,14 @@ const CardComp2 = ({ data }) => {
             <span className="text-purple-400">Legal Grounds: </span>
             {data['Legal Grounds']}
           </p>}
-
           <p>
             <span className="text-purple-400">Urgency Factors: </span>
             {data['Urgency Factors']}
           </p>
-
           <p>
             <span className="text-purple-400">Appeals and Revision Petitions: </span>
             {data['Appeals and Revision Petitions']}
           </p>
-
           <p>
             <span className="text-purple-400">Geographic Factors: </span>
             {data['Geographic Factors']}

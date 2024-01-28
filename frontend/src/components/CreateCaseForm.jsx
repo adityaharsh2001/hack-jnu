@@ -1,8 +1,12 @@
 import axios from 'axios';
-import React, { useState } from 'react';
+import React, {useEffect, useState} from 'react';
+import {useNavigate} from "react-router-dom";
+import {useStore} from "../store/useStore.js";
 
 const CreateCaseForm = () => {
-  // State to hold form data
+  const [cases, setCases] = useState({}); // [1
+  const setPredictions = useStore((state) => state.setPriorityData);
+  const navigate=useNavigate()
   const [formData, setFormData] = useState({
     caseTitle: '',
     source: '',
@@ -36,12 +40,21 @@ const CreateCaseForm = () => {
             citationsLength:formData.citationsLength,
             bench:formData.bench
         })
-        console.log('Form submitted:', res.data);
+      setCases(res.data);
+      console.log(cases)
     }catch(error){
         console.log(error)
     }
 
   };
+  const getPriority= async (input) => {
+    const res = await axios.post(`/api/ai/case/prioritize`,{input});
+    setPredictions(res.data.data);
+    navigate('/datapage')
+  }
+  useEffect(() => {
+    getPriority(cases);
+  }, [cases]);
 
   return (
     <div className="max-w-xl bg-white mx-auto mt-10 p-6  rounded-md shadow-md">
