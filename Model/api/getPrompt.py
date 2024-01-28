@@ -21,7 +21,8 @@ def getPrompt(input):
         Number of Legal Issues(integer): The number of distinct legal issues or claims raised in a case can be an indicator of complexity. Counting the legal issues and sub-issues can provide a quantitative measure.
         Time Sensitivity(integer): Cases with strict time limitations or deadlines may be considered more complex due to the need for expedited proceedings (score between 1 to 10)
         Case Severity(integer): Describe How Serious the matter is, for example a minor robbery is less severe, but a bank robbery is more severe, terrorism is more severe(score between 1 to 10)
-
+        priority: Assign a priority score from 1 to 10 to the cases below. 1 being the highest priority and 10 being the lowest priority. Predict the pririty considering all the keys in the object provided
+        
         input: 
         {
         {"t": "Roghu Nath Pershad And Anr. vs Harlal Sadhu And Ors. on 4 March, 1891",
@@ -57,6 +58,7 @@ def getPrompt(input):
             "Number of Legal Issues": 1,
             "Time Sensitivity": 0
             " Case Severity": 7
+            "priority": 2.5
         }
 
         input: 
@@ -90,6 +92,7 @@ def getPrompt(input):
             "Number of Legal Issues": 2,
             "Time Sensitivity": 1,
             "Case Severity": 7
+            "priority": 6.15
         }
         """
 
