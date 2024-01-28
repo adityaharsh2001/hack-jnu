@@ -91,7 +91,7 @@ def getPrompt(input):
             "Volume of Evidence": 1,
             "Number of Legal Issues": 2,
             "Time Sensitivity": 1,
-            "Case Severity": 7
+            "Case Severity": 7,
             "priority": 6.15
         }
         """
