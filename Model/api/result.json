@@ -1,1 +1,29 @@
-"{ \"Case Type\": \"Civil\", \"Case Complexity\": 2, \"Filing Date\": \"18-June-2008\", \"Case age\": \"10 years\", \"Case Value\": \"0\", \"Alternative Dispute Resolution (ADR) Opportunities\": 0, \"Number of Hearings\": 2, \"Party information\": [\"Petitioner: P.SHERLY, S. SREEVALSAN\", \"Respondent: STATE OF KERALA, ADDITIONAL CHIEF SECRETARY TO, DR. P.PRABAKARAN\"], \"Number of Parties Involved\": 4, \"Legal Representation\": true, \"Sections\": [\"Rule 13A(1)(a) of Part-II of the K.S. & S.S.R\"], \"Legal Grounds\": [\"The Government could not have rejected the representations solely on the ground of delay.\"], \"Statutory Compliance\": true, \"Urgency Factors\": 0, \"Appeals and Revision Petitions\": true, \"Geographic Factors\": \"Kerala High Court\", \"State of Filing\": \"Kerala\", \"Public interest\": 0, \"Volume of Evidence\": 0, \"Number of Legal Issues\": 1, \"Time Sensitivity\": 4, \"Case Severity\": 3 }"
+{
+  "Case Type": "Civil",
+  "Case Complexity": 4,
+  "Filing Date": "04-March-1891",
+  "Case age": "131 years",
+  "Case Value":  "200 rupees",
+  "Alternative Dispute Resolution (ADR) Opportunities": 2,
+  "Number of Hearings": 1,
+  "Party information": "Plaintiffs: Roghu Nath Pershad And Anr. Defendant: Harlal Sadhu And Ors.",
+  "Number of Parties Involved": 3,
+  "Legal Representation": true,
+  "Sections": [
+    "Section 82 of the Transfer of Property Act"
+  ],
+  "Legal Grounds": [
+    "Plaintiff's rights of suit were unextinguished due to sub-sales by the mortgagor."
+  ],
+  "Statutory Compliance": false,
+  "Urgency Factors": 0,
+  "Appeals and Revision Petitions": false,
+  "Geographic Factors": "Calcutta High Court",
+  "State of Filing": "West Bengal",
+  "Public interest": 1,
+  "Volume of Evidence": 0,
+  "Number of Legal Issues": 1,
+  "Time Sensitivity": 0,
+  " Case Severity": 7,
+  "priority": 2.5
+}
