@@ -52,7 +52,7 @@ const Signup = () => {
           
         }
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-t from-purple-300/80  to-white">
+    <div className="min-h-screen flex items-center bg-black bg-[url('./assets/bg.svg')] justify-center  ">
     <div className="bg-white  rounded-md p-8  shadow-md w-96 text-center">
       <h2 className="text-2xl font-bold mb-4 text-slate-800">Sign Up</h2>
       
@@ -60,7 +60,7 @@ const Signup = () => {
         <label className="block text-slate-600 mb-1">Name</label>
         <input
           type="text"
-          className=" focus:outline-none w-full p-2 border border-slate-300 rounded"
+          className=" focus:outline-none w-full p-2 border bg-white rounded"
           placeholder="Enter your name"
           value={name}
           onChange={(e)=>setName(e.target.value)}
@@ -71,7 +71,7 @@ const Signup = () => {
         <label className="block text-slate-600 mb-1">Email</label>
         <input
           type="email"
-          className=" focus:outline-none w-full p-2 border border-slate-300 rounded"
+          className=" focus:outline-none w-full p-2 bg-white  border border-slate-300 rounded"
           placeholder="Enter your email"
           value={email}
           onChange={(e)=>setEmail(e.target.value)}
@@ -82,7 +82,7 @@ const Signup = () => {
         <label className="block text-slate-600 mb-1">Password</label>
         <input
           type="password"
-          className="focus:outline-none w-full p-2 border border-slate-300 rounded"
+          className="focus:outline-none w-full p-2 bg-white  border border-slate-300 rounded"
           placeholder="Enter your password"
           value={password}
           onChange={(e)=>setPassword(e.target.value)}
@@ -100,7 +100,7 @@ const Signup = () => {
         /> */}
  <select
     id="role"
-    className='w-full text-center outline-none rounded-md  border border-1 border-slate-300 p-1 text-slate-600'
+    className='w-full text-center outline-none bg-white  rounded-md  border border-1 border-slate-300 p-1 text-slate-600'
     value={role}
     onChange={(e) => setRole(e.target.value)}
   >
@@ -108,10 +108,8 @@ const Signup = () => {
     <option value="lawyer">Lawyer</option>
   </select>
       </div>
-      
         {
             loading ? (
-            
             <button
             type="submit"
             disabled

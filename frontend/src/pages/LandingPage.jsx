@@ -4,8 +4,7 @@ import Hero from '../components/Hero'
 
 const LandingPage = () => {
   return (
-    <div className='p-8 bg-gradient-to-t from-purple-300/80 h-screen to-white'>
-        <Navbar/>
+    <div className=" bg-black  h-max bg-[url('./assets/bg.svg')]">
       <Hero/>
     </div>
   )

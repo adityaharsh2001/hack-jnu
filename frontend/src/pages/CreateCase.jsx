@@ -3,7 +3,7 @@ import CreateCaseForm from '../components/CreateCaseForm'
 
 const CreateCase = () => {
   return (
-    <div><CreateCaseForm/></div>
+    <div className={"bg-black bg-[url('./assets/bg.svg')]"}><CreateCaseForm/></div>
   )
 }
 

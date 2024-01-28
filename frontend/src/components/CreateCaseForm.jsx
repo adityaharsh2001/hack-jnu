@@ -44,8 +44,8 @@ const CreateCaseForm = () => {
   };
 
   return (
-    <div className="max-w-xl mx-auto mt-10 p-6 bg-white rounded-md shadow-md">
-      <h2 className="text-2xl font-semibold mb-4">Submit a case to analyse</h2>
+    <div className="max-w-xl bg-white mx-auto mt-10 p-6  rounded-md shadow-md">
+      <h2 className="text-2xl font-semibold text-black mb-4">Submit a case to analyse</h2>
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
           <label htmlFor="caseTitle" className="block text-sm font-medium text-gray-600">
@@ -57,7 +57,7 @@ const CreateCaseForm = () => {
             name="caseTitle"
             value={formData.caseTitle}
             onChange={handleChange}
-            className="mt-1 p-2 w-full border rounded-md"
+            className="mt-1 p-2 w-full border bg-white rounded-md"
           />
         </div>
 
@@ -73,7 +73,7 @@ const CreateCaseForm = () => {
             name="source"
             value={formData.source}
             onChange={handleChange}
-            className="mt-1 p-2 w-full border rounded-md"
+            className="mt-1 p-2 w-full border bg-white  rounded-md"
           />
         </div>
 
@@ -87,7 +87,7 @@ const CreateCaseForm = () => {
             name="kanoonId"
             value={formData.kanoonId}
             onChange={handleChange}
-            className="mt-1 p-2 w-full border rounded-md"
+            className="mt-1 p-2 w-full border bg-white  rounded-md"
           />
         </div>
 
@@ -101,7 +101,7 @@ const CreateCaseForm = () => {
             name="caseProceedings"
             value={formData.caseProceedings}
             onChange={handleChange}
-            className="mt-1 p-2 w-full border rounded-md"
+            className="mt-1 p-2 w-full border bg-white  rounded-md"
           />
         </div>
 
@@ -115,7 +115,7 @@ const CreateCaseForm = () => {
             name="citations"
             value={formData.citations}
             onChange={handleChange}
-            className="mt-1 p-2 w-full border rounded-md"
+            className="mt-1 p-2 w-full border bg-white  rounded-md"
           />
         </div>
 
@@ -129,7 +129,7 @@ const CreateCaseForm = () => {
             name="citationsLength"
             value={formData.citationsLength}
             onChange={handleChange}
-            className="mt-1 p-2 w-full border rounded-md"
+            className="mt-1 p-2 w-full border bg-white  rounded-md"
           />
         </div>
 
@@ -143,7 +143,7 @@ const CreateCaseForm = () => {
             name="bench"
             value={formData.bench}
             onChange={handleChange}
-            className="mt-1 p-2 w-full border rounded-md"
+            className="mt-1 p-2 w-full border bg-white  rounded-md"
           />
         </div>
 
@@ -151,7 +151,7 @@ const CreateCaseForm = () => {
         <div className="mt-4">
           <button
             type="submit"
-            className="bg-purple-500 text-white px-4 py-2 rounded-md hover:bg-purple-300"
+            className="bg-purple-500 text-white px-4 py-2   rounded-md hover:bg-purple-300"
           >
             Create Case
           </button>

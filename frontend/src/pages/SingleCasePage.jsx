@@ -15,7 +15,7 @@ const SingleCasePage = () => {
         setPredictedDataSet({})
     },[])
   return (
-    <div className='bg-gradient-to-t flex gap-y-8 flex-col items-center mt-10 from-purple-300/80 h-[150vh] pb-40 to-white'>
+    <div className="bg-black bg-[url('./assets/bg.svg')] flex gap-y-8 flex-col items-center mt-10 h-max pb-40 ">
         <SearchBar/>
         {(Object.keys(dataSet).length>0 && Object.keys(predictedDataSet).length>0)?(<div className='flex gap-x-4 mx-20 gap-y-10'>
             <CardComp data={dataSet}/>

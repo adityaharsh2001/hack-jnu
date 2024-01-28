@@ -15,7 +15,8 @@ import SingleCasePage from './pages/SingleCasePage'
 
 function App() {
   return (
-   <div className=' '>
+   <div className='h-[100vh]'>
+     <Navbar/>
     <Routes>
       <Route path='/' element={<LandingPage/>}/>
       <Route path='/signin' element={<Signin/>}/>
