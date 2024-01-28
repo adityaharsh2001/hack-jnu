@@ -19,7 +19,8 @@ Router.post('/case/prioritize', async (req, res) => {
     try {
         const {input} = req.body;
         const result = await axios.post('https://directed-mender-412414.uc.r.appspot.com/predict', {input});
-        res.status(200).json({message:"Success",data:JSON.parse(result.data.result)});
+        const data = JSON.parse(result.data.result);
+        res.status(200).json({message:"Success",data:data});
     }
     catch (error) {
         console.log(error);
